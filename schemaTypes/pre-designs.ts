@@ -1,11 +1,14 @@
 // schemas/preDesignedCookie.ts
-import type {Rule} from 'sanity'
+import { defineType } from 'sanity';
+import { orderRankField } from '@sanity/orderable-document-list';
+import type { Rule } from 'sanity';
 
-const predesignSchema =  {
+export default defineType({
   name: 'predesign',
   title: 'Pre-Designed Cookies',
   type: 'document',
   fields: [
+    orderRankField({ type: 'predesign' }), // 👈 must be first
     {
       name: 'name',
       title: 'Name',
@@ -33,7 +36,7 @@ const predesignSchema =  {
       name: 'image',
       title: 'Image',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
       validation: (Rule: Rule) => Rule.required(),
     },
     {
@@ -43,6 +46,4 @@ const predesignSchema =  {
       validation: (Rule: Rule) => Rule.required(),
     },
   ],
-}
-
-export default predesignSchema
+});
