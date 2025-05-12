@@ -1,16 +1,61 @@
-const classSchema = {
+// schemas/class.ts
+import { defineType } from 'sanity';
+import type { Rule } from 'sanity';
+
+export default defineType({
   name: 'class',
   title: 'Class',
   type: 'document',
   fields: [
-    {name: 'month', type: 'string', title: 'Month'},
-    {name: 'day', type: 'string', title: 'Day'},
-    {name: 'title', type: 'string', title: 'Title'},
-    {name: 'description', type: 'text', title: 'Description'},
-    {name: 'address', type: 'string', title: 'Address'},
-    {name: 'price', type: 'string', title: 'Price'},
-    {name: 'time', type: 'string', title: 'Time'},
+    {
+      name: 'month',
+      title: 'Month',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'day',
+      title: 'Day',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 4,
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'address',
+      title: 'Address',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'price',
+      title: 'Price (e.g., $65 per person)',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'time',
+      title: 'Time',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'image',
+      title: 'Class Image',
+      type: 'image',
+      options: { hotspot: true },
+      validation: (Rule: Rule) => Rule.optional(),
+    },
   ],
-}
-
-export default classSchema
+});
