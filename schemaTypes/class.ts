@@ -1,6 +1,6 @@
 // schemas/class.ts
-import { defineType } from 'sanity';
-import type { Rule } from 'sanity';
+import {defineType} from 'sanity'
+import type {Rule} from 'sanity'
 
 export default defineType({
   name: 'class',
@@ -54,8 +54,14 @@ export default defineType({
       name: 'image',
       title: 'Class Image',
       type: 'image',
-      options: { hotspot: true },
+      options: {hotspot: true},
       validation: (Rule: Rule) => Rule.optional(),
     },
+    {
+      name: 'seatsLeft',
+      title: 'Seats Left',
+      type: 'number',
+      validation: (Rule: Rule) => Rule.required().min(0).integer(),
+    },
   ],
-});
+})

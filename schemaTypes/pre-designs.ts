@@ -1,14 +1,14 @@
 // schemas/preDesignedCookie.ts
-import { defineType } from 'sanity';
-import { orderRankField } from '@sanity/orderable-document-list';
-import type { Rule } from 'sanity';
+import {defineType} from 'sanity'
+import {orderRankField} from '@sanity/orderable-document-list'
+import type {Rule} from 'sanity'
 
 export default defineType({
   name: 'predesign',
   title: 'Pre-Designed Cookies',
   type: 'document',
   fields: [
-    orderRankField({ type: 'predesign' }), // 👈 must be first
+    orderRankField({type: 'predesign'}), // 👈 must be first
     {
       name: 'name',
       title: 'Name',
@@ -36,7 +36,7 @@ export default defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
-      options: { hotspot: true },
+      options: {hotspot: true},
       validation: (Rule: Rule) => Rule.required(),
     },
     {
@@ -46,4 +46,4 @@ export default defineType({
       validation: (Rule: Rule) => Rule.required(),
     },
   ],
-});
+})
