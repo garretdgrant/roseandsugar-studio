@@ -17,6 +17,7 @@ export default defineConfig({
         return S.list()
           .title('Content')
           .items([
+            orderableDocumentListDeskItem({type: 'sweetBake', S, context}),
             orderableDocumentListDeskItem({type: 'predesign', S, context}),
             S.documentTypeListItem('class'),
           ])
